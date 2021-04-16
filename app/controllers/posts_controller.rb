@@ -24,7 +24,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    
     @post = Post.new(post_params)
+  
+    # if !params["post"]["tags_attributes"]["0"]["name"].empty?
+      
+    #   tag = Tag.find_or_create_by(name: params["post"]["tags_attributes"]["0"]["name"])
+        
+    #   @post.tags << tag
+    # end
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
